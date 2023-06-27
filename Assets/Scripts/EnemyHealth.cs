@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         spawnPoint = transform.parent;
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponentInParent<Rigidbody2D>();
     }
 
     public void TakeDamage(int damage, Transform playerTransform, Vector2 dir)
@@ -64,8 +64,14 @@ public class EnemyHealth : MonoBehaviour
     }
 
     void ApplyKnockback(Vector2 direction, float force)
-    {
+    {    
         direction.x = direction.x * force;
         rb.AddForce(direction, ForceMode2D.Impulse);
     }
+
+
+     
+
+
+
 }
